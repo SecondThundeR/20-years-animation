@@ -36,155 +36,138 @@ export default makeScene2D(function* (view) {
 
   /* Layouts */
   const mainLayout = (
-    <Layout ref={mainLayoutRef} filters={[blur(() => blurLevelSignal())]} />
+    <Layout ref={mainLayoutRef} filters={[blur(() => blurLevelSignal())]}>
+      <Txt
+        text="Level"
+        fontFamily="Ubuntu"
+        fontSize={96}
+        fontWeight={700}
+        fill={secondaryColor}
+        position={{
+          x: -340,
+          y: -30,
+        }}
+      />
+      <Txt
+        ref={currLevelTextRef}
+        text="19"
+        fontFamily="Ubuntu"
+        fontSize={160}
+        fontWeight={700}
+        position={{
+          x: -100,
+          y: -50,
+        }}
+        fill={accentColor}
+      />
+      <Txt
+        ref={nextLevelTextRef}
+        text="20"
+        fontFamily="Ubuntu"
+        fontSize={160}
+        fontWeight={700}
+        position={{
+          x: 375,
+          y: -50,
+        }}
+        opacity={0.3}
+        fill={accentColor}
+      />
+      <Txt
+        ref={nextLevelNewTextRef}
+        text="21"
+        fontFamily="Ubuntu"
+        fontSize={160}
+        fontWeight={700}
+        position={{
+          x: 375,
+          y: -50,
+        }}
+        opacity={0}
+        fill={accentColor}
+      />
+      <Txt
+        ref={progressBarTextRef}
+        fontFamily="Ubuntu"
+        fontWeight={500}
+        fontSize={36}
+        text={() =>
+          `${Math.floor(daysLeftSignal())} days left to level ${Math.floor(
+            nextLevelSignal()
+          )}`
+        }
+        opacity={0.7}
+        position={{
+          x: 0,
+          y: 145,
+        }}
+        fill={accentColor}
+      />
+      <Rect
+        radius={99}
+        width={928}
+        height={36}
+        position={{
+          x: 0,
+          y: 80,
+        }}
+        opacity={0.2}
+        fill={accentColor}
+      />
+      <Rect
+        ref={currProgressRectRef}
+        radius={99}
+        width={() => progressBarWidthSignal()}
+        height={36}
+        position={{
+          x: -70,
+          y: 80,
+        }}
+        fill={accentColor}
+      />
+    </Layout>
   );
-  const overlayLayout = <Layout ref={overlayLayoutRef} opacity={0} />;
+
+  const overlayLayout = (
+    <Layout ref={overlayLayoutRef} opacity={0}>
+      <Rect width={1920} height={1080} fill="black" opacity={0.5} />
+      <Txt
+        ref={overlayTitleRef}
+        text="Level up!"
+        fontFamily="Ubuntu"
+        fontWeight={700}
+        fontSize={96}
+        position={{
+          x: 0,
+          y: 20, // Initial: -80
+        }}
+        fill={accentColor}
+        opacity={0}
+      />
+      <Txt
+        ref={overlaySubtitleRef}
+        text={() =>
+          `Congratulations on reaching level ${Math.floor(
+            nextLevelSignal() - 1
+          )}
+Keep it up!`
+        }
+        fontFamily="Ubuntu"
+        fontWeight={400}
+        fontSize={64}
+        textAlign="center"
+        textWrap="pre"
+        position={{
+          x: 0,
+          y: 160, // Initial: 80
+        }}
+        fill={secondaryColor}
+        opacity={0}
+      />
+    </Layout>
+  );
 
   /* Scene config */
-  yield mainLayout.add(
-    <Txt
-      text="Level"
-      fontFamily="Ubuntu"
-      fontSize={96}
-      fontWeight={700}
-      fill={secondaryColor}
-      position={{
-        x: -340,
-        y: -30,
-      }}
-    />
-  );
-  yield mainLayout.add(
-    <Txt
-      ref={currLevelTextRef}
-      text="19"
-      fontFamily="Ubuntu"
-      fontSize={160}
-      fontWeight={700}
-      position={{
-        x: -100,
-        y: -50,
-      }}
-      fill={accentColor}
-    />
-  );
-
-  yield mainLayout.add(
-    <Txt
-      ref={nextLevelTextRef}
-      text="20"
-      fontFamily="Ubuntu"
-      fontSize={160}
-      fontWeight={700}
-      position={{
-        x: 375,
-        y: -50,
-      }}
-      opacity={0.3}
-      fill={accentColor}
-    />
-  );
-
-  yield mainLayout.add(
-    <Txt
-      ref={nextLevelNewTextRef}
-      text="21"
-      fontFamily="Ubuntu"
-      fontSize={160}
-      fontWeight={700}
-      position={{
-        x: 375,
-        y: -50,
-      }}
-      opacity={0}
-      fill={accentColor}
-    />
-  );
-  yield mainLayout.add(
-    <Txt
-      ref={progressBarTextRef}
-      fontFamily="Ubuntu"
-      fontWeight={500}
-      fontSize={36}
-      text={() =>
-        `${Math.floor(daysLeftSignal())} days left to level ${Math.floor(
-          nextLevelSignal()
-        )}`
-      }
-      opacity={0.7}
-      position={{
-        x: 0,
-        y: 145,
-      }}
-      fill={accentColor}
-    />
-  );
-  yield mainLayout.add(
-    <Rect
-      radius={99}
-      width={928}
-      height={36}
-      position={{
-        x: 0,
-        y: 80,
-      }}
-      opacity={0.2}
-      fill={accentColor}
-    />
-  );
-  yield mainLayout.add(
-    <Rect
-      ref={currProgressRectRef}
-      radius={99}
-      width={() => progressBarWidthSignal()}
-      height={36}
-      position={{
-        x: -70,
-        y: 80,
-      }}
-      fill={accentColor}
-    />
-  );
-
-  yield overlayLayout.add(
-    <Rect width={1920} height={1080} fill="black" opacity={0.5} />
-  );
-  yield overlayLayout.add(
-    <Txt
-      ref={overlayTitleRef}
-      text="Level up!"
-      fontFamily="Ubuntu"
-      fill={accentColor}
-      fontWeight={700}
-      fontSize={96}
-      position={{
-        x: 0,
-        y: 20, // Initial: -80
-      }}
-      opacity={0}
-    />
-  );
-  yield overlayLayout.add(
-    <Txt
-      ref={overlaySubtitleRef}
-      text={() =>
-        `Congratulations on reaching level ${Math.floor(nextLevelSignal() - 1)}
-Keep it up!`
-      }
-      fontFamily="Ubuntu"
-      textAlign="center"
-      textWrap="pre"
-      fill={secondaryColor}
-      fontWeight={400}
-      fontSize={64}
-      position={{
-        x: 0,
-        y: 160, // Initial: 80
-      }}
-      opacity={0}
-    />
-  );
-
   yield view.add(mainLayout);
   yield view.add(overlayLayout);
 
