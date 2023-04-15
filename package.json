@@ -1,0 +1,19 @@
+{
+  "name": "20-years-animation",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "serve": "vite",
+    "build": "tsc && vite build"
+  },
+  "dependencies": {
+    "@motion-canvas/2d": "^3.5.1",
+    "@motion-canvas/core": "^3.4.0"
+  },
+  "devDependencies": {
+    "@motion-canvas/ui": "^3.5.0",
+    "@motion-canvas/vite-plugin": "^3.4.0",
+    "typescript": "^5.0.4",
+    "vite": "^4.1.4"
+  }
+}
