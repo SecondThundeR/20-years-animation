@@ -1,7 +1,7 @@
 import { makeScene2D } from "@motion-canvas/2d/lib/scenes";
 import { all, waitFor } from "@motion-canvas/core/lib/flow";
 import { Txt } from "@motion-canvas/2d/lib/components/Txt";
-import { createRef } from "@motion-canvas/core/lib/utils";
+import { createRef, useScene } from "@motion-canvas/core/lib/utils";
 import { Layout, Rect } from "@motion-canvas/2d/lib/components";
 import { createSignal } from "@motion-canvas/core/lib/signals";
 import { easeInOutQuint, easeOutExpo } from "@motion-canvas/core/lib/tweening";
@@ -9,6 +9,10 @@ import { blur } from "@motion-canvas/2d/lib/partials";
 
 // TODO: Refactor to proper flexbox/etc.
 export default makeScene2D(function* (view) {
+  const scene = useScene();
+  const accentColor = scene.variables.get("accentColor", "#FF6000");
+  const secondaryColor = scene.variables.get("secondaryColor", "#FFA559");
+
   /* Refs */
   const progressBarTextRef = createRef<Txt>(); // Days left to new "level" text
   const currLevelTextRef = createRef<Txt>(); // Current age "level" text
@@ -39,7 +43,7 @@ export default makeScene2D(function* (view) {
       fontFamily="Ubuntu"
       fontSize={96}
       fontWeight={700}
-      fill="#fff"
+      fill={secondaryColor}
       position={{
         x: -340,
         y: -30,
@@ -57,7 +61,7 @@ export default makeScene2D(function* (view) {
         x: -100,
         y: -50,
       }}
-      fill="#57C5B6"
+      fill={accentColor}
     />
   );
 
@@ -72,8 +76,8 @@ export default makeScene2D(function* (view) {
         x: 375,
         y: -50,
       }}
-      opacity={0.45}
-      fill="#57C5B6"
+      opacity={0.3}
+      fill={accentColor}
     />
   );
 
@@ -89,7 +93,7 @@ export default makeScene2D(function* (view) {
         y: -50,
       }}
       opacity={0}
-      fill="#57C5B6"
+      fill={accentColor}
     />
   );
   yield mainLayout.add(
@@ -103,12 +107,12 @@ export default makeScene2D(function* (view) {
           nextLevelSignal()
         )}`
       }
-      opacity={0.5}
+      opacity={0.7}
       position={{
         x: 0,
         y: 145,
       }}
-      fill="#57C5B6"
+      fill={accentColor}
     />
   );
   yield mainLayout.add(
@@ -121,7 +125,7 @@ export default makeScene2D(function* (view) {
         y: 80,
       }}
       opacity={0.2}
-      fill={"#159895"}
+      fill={accentColor}
     />
   );
   yield mainLayout.add(
@@ -134,7 +138,7 @@ export default makeScene2D(function* (view) {
         x: -70,
         y: 80,
       }}
-      fill={"#159895"}
+      fill={accentColor}
     />
   );
 
@@ -146,7 +150,7 @@ export default makeScene2D(function* (view) {
       ref={overlayTitleRef}
       text="Level up!"
       fontFamily="Ubuntu"
-      fill={"#57C5B6"}
+      fill={accentColor}
       fontWeight={700}
       fontSize={96}
       position={{
@@ -166,7 +170,7 @@ Keep it up!`
       fontFamily="Ubuntu"
       textAlign="center"
       textWrap="pre"
-      fill="white"
+      fill={secondaryColor}
       fontWeight={400}
       fontSize={64}
       position={{
