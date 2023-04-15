@@ -13,6 +13,7 @@ import { blur } from "@motion-canvas/2d/lib/partials";
 
 // TODO: Refactor to proper flexbox/etc.
 export default makeScene2D(function* (view) {
+  /* Variables */
   const scene = useScene();
   const accentColor = scene.variables.get("accentColor", "#FF6000");
   const secondaryColor = scene.variables.get("secondaryColor", "#FFA559");
@@ -40,20 +41,20 @@ export default makeScene2D(function* (view) {
       <Txt
         text="Level"
         fontFamily="Ubuntu"
-        fontSize={96}
         fontWeight={700}
-        fill={secondaryColor}
+        fontSize={96}
         position={{
           x: -340,
           y: -30,
         }}
+        fill={secondaryColor}
       />
       <Txt
         ref={currLevelTextRef}
         text="19"
         fontFamily="Ubuntu"
-        fontSize={160}
         fontWeight={700}
+        fontSize={160}
         position={{
           x: -100,
           y: -50,
@@ -64,8 +65,8 @@ export default makeScene2D(function* (view) {
         ref={nextLevelTextRef}
         text="20"
         fontFamily="Ubuntu"
-        fontSize={160}
         fontWeight={700}
+        fontSize={160}
         position={{
           x: 375,
           y: -50,
@@ -77,8 +78,8 @@ export default makeScene2D(function* (view) {
         ref={nextLevelNewTextRef}
         text="21"
         fontFamily="Ubuntu"
-        fontSize={160}
         fontWeight={700}
+        fontSize={160}
         position={{
           x: 375,
           y: -50,
@@ -88,19 +89,19 @@ export default makeScene2D(function* (view) {
       />
       <Txt
         ref={progressBarTextRef}
-        fontFamily="Ubuntu"
-        fontWeight={500}
-        fontSize={36}
         text={() =>
           `${Math.floor(daysLeftSignal())} days left to level ${Math.floor(
             nextLevelSignal()
           )}`
         }
-        opacity={0.7}
+        fontFamily="Ubuntu"
+        fontWeight={500}
+        fontSize={36}
         position={{
           x: 0,
           y: 145,
         }}
+        opacity={0.7}
         fill={accentColor}
       />
       <Rect
@@ -116,9 +117,9 @@ export default makeScene2D(function* (view) {
       />
       <Rect
         ref={currProgressRectRef}
-        radius={99}
         width={() => progressBarWidthSignal()}
         height={36}
+        radius={99}
         position={{
           x: -70,
           y: 80,
@@ -130,7 +131,7 @@ export default makeScene2D(function* (view) {
 
   const overlayLayout = (
     <Layout ref={overlayLayoutRef} opacity={0}>
-      <Rect width={1920} height={1080} fill="black" opacity={0.5} />
+      <Rect width={1920} height={1080} opacity={0.5} fill="black" />
       <Txt
         ref={overlayTitleRef}
         text="Level up!"
@@ -141,8 +142,8 @@ export default makeScene2D(function* (view) {
           x: 0,
           y: 20, // Initial: -80
         }}
-        fill={accentColor}
         opacity={0}
+        fill={accentColor}
       />
       <Txt
         ref={overlaySubtitleRef}
@@ -161,8 +162,8 @@ Keep it up!`
           x: 0,
           y: 160, // Initial: 80
         }}
-        fill={secondaryColor}
         opacity={0}
+        fill={secondaryColor}
       />
     </Layout>
   );
