@@ -4,7 +4,11 @@ import { Txt } from "@motion-canvas/2d/lib/components/Txt";
 import { createRef, useScene } from "@motion-canvas/core/lib/utils";
 import { Layout, Rect } from "@motion-canvas/2d/lib/components";
 import { createSignal } from "@motion-canvas/core/lib/signals";
-import { easeInOutQuint, easeOutExpo } from "@motion-canvas/core/lib/tweening";
+import {
+  easeInOutQuint,
+  easeInQuint,
+  easeOutExpo,
+} from "@motion-canvas/core/lib/tweening";
 import { blur } from "@motion-canvas/2d/lib/partials";
 
 // TODO: Refactor to proper flexbox/etc.
@@ -188,9 +192,9 @@ Keep it up!`
   yield* delay(
     1,
     all(
-      daysLeftSignal(0, 3, easeInOutQuint),
-      progressBarWidthSignal(928, 3, easeInOutQuint),
-      currProgressRectRef().position.x(0, 3, easeInOutQuint)
+      daysLeftSignal(0, 3, easeInQuint),
+      progressBarWidthSignal(928, 3, easeInQuint),
+      currProgressRectRef().position.x(0, 3, easeInQuint)
     )
   );
 
@@ -209,9 +213,9 @@ Keep it up!`
   );
 
   yield* delay(
-    0.2,
+    0.3,
     all(
-      blurLevelSignal(20, 0.5, easeInOutQuint),
+      blurLevelSignal(50, 0.5, easeInOutQuint),
       overlayLayoutRef().opacity(1, 0.5, easeInOutQuint)
     )
   );
