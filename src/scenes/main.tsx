@@ -223,8 +223,8 @@ Keep it up!`
   yield* all(
     overlaySubtitleRef().opacity(1, 0.8, easeOutExpo),
     overlaySubtitleRef().position.y(80, 0.8, easeOutExpo),
-    overlayTitleRef().opacity(1, 0.8, easeOutExpo),
-    overlayTitleRef().position.y(-80, 0.8, easeOutExpo)
+    overlayTitleRef().opacity(1, 1.2, easeOutExpo),
+    overlayTitleRef().position.y(-80, 1.2, easeOutExpo)
   );
 
   yield* waitFor(1);
