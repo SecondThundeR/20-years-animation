@@ -11,7 +11,6 @@ import {
 } from "@motion-canvas/core/lib/tweening";
 import { blur } from "@motion-canvas/2d/lib/partials";
 
-// TODO: Refactor to proper flexbox/etc.
 export default makeScene2D(function* (view) {
   /* Variables */
   const scene = useScene();
