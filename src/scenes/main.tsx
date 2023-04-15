@@ -1,5 +1,5 @@
 import { makeScene2D } from "@motion-canvas/2d/lib/scenes";
-import { all, waitFor } from "@motion-canvas/core/lib/flow";
+import { all, delay, waitFor } from "@motion-canvas/core/lib/flow";
 import { Txt } from "@motion-canvas/2d/lib/components/Txt";
 import { createRef, useScene } from "@motion-canvas/core/lib/utils";
 import { Layout, Rect } from "@motion-canvas/2d/lib/components";
@@ -185,12 +185,13 @@ Keep it up!`
   yield view.add(overlayLayout);
 
   /* Animations */
-  yield* waitFor(1);
-
-  yield* all(
-    daysLeftSignal(0, 3, easeInOutQuint),
-    progressBarWidthSignal(928, 3, easeInOutQuint),
-    currProgressRectRef().position.x(0, 3, easeInOutQuint)
+  yield* delay(
+    1,
+    all(
+      daysLeftSignal(0, 3, easeInOutQuint),
+      progressBarWidthSignal(928, 3, easeInOutQuint),
+      currProgressRectRef().position.x(0, 3, easeInOutQuint)
+    )
   );
 
   yield* all(
@@ -207,11 +208,12 @@ Keep it up!`
     nextLevelNewTextRef().opacity(0.3, 1, easeInOutQuint)
   );
 
-  yield* waitFor(0.2);
-
-  yield* all(
-    blurLevelSignal(20, 0.5, easeInOutQuint),
-    overlayLayoutRef().opacity(1, 0.5, easeInOutQuint)
+  yield* delay(
+    0.2,
+    all(
+      blurLevelSignal(20, 0.5, easeInOutQuint),
+      overlayLayoutRef().opacity(1, 0.5, easeInOutQuint)
+    )
   );
 
   yield* all(
