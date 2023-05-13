@@ -4,7 +4,9 @@ This is an animation created with [Motion Canvas](https://motioncanvas.io) to ce
 
 This animation is made in a minimalistic style, using the concept of "gamification"
 
-![Animation result](/assets/result.mp4)
+<video width="1920" height="1080" controls>
+  <source src="/assets/result.mp4" type="video/mp4">
+</video>
 
 ## How to run
 
