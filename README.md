@@ -14,16 +14,17 @@ yarn serve
 
 ## How to render
 
-1. Use `render` feature in Motion Canvas's UI
-2. Go to /output/project folder in Terminal
-3. Type `ffmpeg -framerate 60 -i %06d.png -c:a copy -shortest -c:v libx264 -pix_fmt yuv420p ./test.mp4` and wait
-4. Get `test.mp4` as a video render output
+0. Run `yarn serve` to launch Motion Canvas
+1. Use `Render` button in Motion Canvas's Video Settings
+2. After render, go to `/output/project` folder where `project.mp4` will be located
+3. ...
+4. You are done!
 
-> To get GIF, just run two more commands:
+> To get GIF, run two commands using `ffmpeg`:
 >
-> `ffmpeg -y -i test.mp4 -vf palettegen palette.png`
+> `ffmpeg -y -i project.mp4 -vf palettegen palette.png`
 >
-> `ffmpeg -y -i test.mp4 -i palette.png -filter_complex paletteuse -r 50 -s 1920x1080 test.gif`
+> `ffmpeg -y -i project.mp4 -i palette.png -filter_complex paletteuse -r 50 -s 1920x1080 project.gif`
 
 ## License
 
