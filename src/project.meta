@@ -18,14 +18,13 @@
   },
   "rendering": {
     "fps": 60,
-    "resolutionScale": 1,
-    "colorSpace": "srgb",
+    "resolutionScale": 2,
+    "colorSpace": "display-p3",
     "exporter": {
-      "name": "image sequence",
+      "name": "@motion-canvas/ffmpeg",
       "options": {
-        "fileType": "image/png",
-        "quality": 100,
-        "groupByScene": false
+        "fastStart": true,
+        "includeAudio": true
       }
     }
   }
