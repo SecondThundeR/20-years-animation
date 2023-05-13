@@ -4,7 +4,7 @@ This is an animation created with [Motion Canvas](https://motioncanvas.io) to ce
 
 This animation is made in a minimalistic style, using the concept of "gamification"
 
-![Animation result](/assets/result.gif)
+![Animation result](/assets/result.mp4)
 
 ## How to run
 
@@ -19,12 +19,6 @@ yarn serve
 2. After render, go to `/output/project` folder where `project.mp4` will be located
 3. ...
 4. You are done!
-
-> To get GIF, run two commands using `ffmpeg`:
->
-> `ffmpeg -y -i project.mp4 -vf palettegen palette.png`
->
-> `ffmpeg -y -i project.mp4 -i palette.png -filter_complex paletteuse -r 50 -s 1920x1080 project.gif`
 
 ## License
 
