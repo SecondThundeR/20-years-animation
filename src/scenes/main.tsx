@@ -130,7 +130,7 @@ export default makeScene2D(function* (view) {
 
   const overlayLayout = (
     <Layout ref={overlayLayoutRef} opacity={0}>
-      <Rect width={1920} height={1080} opacity={0.5} fill="black" />
+      <Rect width={1920} height={1080} opacity={0.7} fill="black" />
       <Txt
         ref={overlayTitleRef}
         text="Level up!"
@@ -198,7 +198,7 @@ Keep it up!`
   yield* delay(
     0.3,
     all(
-      blurLevelSignal(50, 0.5, easeInOutQuint),
+      blurLevelSignal(20, 0.5, easeInOutQuint),
       overlayLayoutRef().opacity(1, 0.5, easeInOutQuint)
     )
   );
