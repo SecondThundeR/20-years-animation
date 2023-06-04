@@ -1,15 +1,15 @@
-import { makeScene2D } from "@motion-canvas/2d/lib/scenes";
-import { all, delay, waitFor } from "@motion-canvas/core/lib/flow";
-import { Txt } from "@motion-canvas/2d/lib/components/Txt";
-import { createRef, useScene } from "@motion-canvas/core/lib/utils";
-import { Layout, Rect } from "@motion-canvas/2d/lib/components";
-import { createSignal } from "@motion-canvas/core/lib/signals";
+import { makeScene2D, Txt, Layout, Rect, blur } from "@motion-canvas/2d";
 import {
+  all,
+  delay,
+  waitFor,
+  createRef,
+  useScene,
+  createSignal,
   easeInOutQuint,
   easeInQuint,
   easeOutExpo,
-} from "@motion-canvas/core/lib/tweening";
-import { blur } from "@motion-canvas/2d/lib/partials";
+} from "@motion-canvas/core";
 
 export default makeScene2D(function* (view) {
   /* Variables */
