@@ -11,13 +11,13 @@ This animation is made in a minimalistic style, using the concept of "gamificati
 ## How to run
 
 ```shell
-yarn
-yarn serve
+pnpm i
+pnpm serve
 ```
 
 ## How to render
 
-0. Run `yarn` to install dependencies and `yarn serve` to launch Motion Canvas
+0. Run `pnpm i` to install dependencies and `pnpm serve` to launch Motion Canvas
 1. Use `Render` button in Motion Canvas's Video Settings
 2. After render, go to `/output/project` folder where `project.mp4` will be located
 3. ...
