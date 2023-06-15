@@ -15,6 +15,9 @@ pnpm i
 pnpm serve
 ```
 
+> Note: On first load, project Motion Canvas can show default (fallback) font instead of "Ubuntu".
+> To fix this, simply reload the page again to reload remote fonts
+
 ## How to render
 
 0. Run `pnpm i` to install dependencies and `pnpm serve` to launch Motion Canvas
